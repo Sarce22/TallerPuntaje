@@ -23,7 +23,7 @@ export class UserService {
 
   agregarUsuario(nuevoUsuario: User) {
     
-    nuevoUsuario.id = this.usuarios.length + 1;
+    nuevoUsuario.id = this.usuarios.length + 1;//que aumentara para que no me salieran todos con id=0
   
     this.usuarios.push(nuevoUsuario);
     localStorage.setItem('users', JSON.stringify(this.usuarios));
