@@ -22,13 +22,11 @@ export class UserService {
 
 
   agregarUsuario(nuevoUsuario: User) {
-    const usuarioExistente = this.usuarios.find(user => user.id === nuevoUsuario.id);
-    if (usuarioExistente) {
-      console.log(`El usuario con ID ${nuevoUsuario.id} ya existe.`);
-    } else {
-      this.usuarios.push(nuevoUsuario); //USar el stringify
-      localStorage.setItem('users', JSON.stringify(this.usuarios));
-    }
+    
+    nuevoUsuario.id = this.usuarios.length + 1;
+  
+    this.usuarios.push(nuevoUsuario);
+    localStorage.setItem('users', JSON.stringify(this.usuarios));
   }
 
 
