@@ -34,10 +34,7 @@ export class ListarUsuarioComponent {
 
   agregarUsuario() {
     if (this.agregarFormulario.valid) {
-    
       this.nuevoUsuario = { ...this.nuevoUsuario, ...this.agregarFormulario.value };
-
-      
       this.usuarioService.agregarUsuario(this.nuevoUsuario);
       this.nuevoUsuario = new User();
       this.agregarFormulario.reset();
@@ -51,7 +48,6 @@ export class ListarUsuarioComponent {
         icon: 'error',
         title: 'Completa los campos',
         text: 'Algo ha salido mal :(',
-        
       });
     }
   }
