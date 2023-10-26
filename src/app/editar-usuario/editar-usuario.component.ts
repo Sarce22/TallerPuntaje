@@ -81,6 +81,12 @@ export class EditarUsuarioComponent {
         const tipoUsuario = (<HTMLSelectElement>document.getElementById('tipoUsuario')).value;
         const observaciones = (<HTMLInputElement>document.getElementById('observaciones')).value;
 
+        //Validar capos
+        if (!nombre || !apellidos || !email ||!observaciones) {
+          Swal.fire('Error', 'Los campos debe tener informacion', 'error');
+          return; 
+        }
+
         user.nombre = nombre;
         user.apellidos = apellidos;
         user.email = email;
