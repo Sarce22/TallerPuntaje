@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2>Listar Usuarios</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Tipo de Usuario</th>
+                <th>Fecha de Creación</th>
+                <th>Observaciones</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.tipo }}</td>
+                <td>{{ user.fechaCreacion | date }}</td>
+                <td>{{ user.observaciones }}</td>
+                <td><img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/1177/1177434.png" style='width: 30px' alt=""></td>
+                <td (click)="eliminarUsuario(user)"
+                ><img class="card-img-top" src="https://cdn-icons-png.flaticon.com/128/7347/7347206.png" style='width: 30px' alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,84 @@
+<div class="container mt-4">
+    <h2>Listar Usuarios</h2><br>
+    <form (submit)="agregarUsuario()" [formGroup]="agregarFormulario">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre" required>
+            <div
+              *ngIf="agregarFormulario.get('nombre')?.touched && agregarFormulario.get('nombre')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa tu nombre
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" formControlName="apellidos" placeholder="Ingrese su apellido" required>
+            <div
+              *ngIf="agregarFormulario.get('apellidos')?.touched && agregarFormulario.get('apellidos')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa tu email
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Ingrese su email" required>
+            <div
+              *ngIf="agregarFormulario.get('email')?.touched && agregarFormulario.get('email')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa tu email
+            </div>
+            <div
+              *ngIf="agregarFormulario.get('email')?.touched && agregarFormulario.get('email')?.hasError('email')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa un email válido
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tipo-usuario">Tipo de Usuario:</label>
+            <select class="form-control" id="tipo-usuario" formControlName="tipo" required>
+                <option value="Admin">Admin</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Cliente">Cliente</option>
+            </select>
+            <div
+              *ngIf="agregarFormulario.get('tipo')?.touched && agregarFormulario.get('tipo')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Selecciona el tipo de usuario
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fecha-creacion">Fecha de Creación:</label>
+            <input type="date" class="form-control" id="fecha-creacion" formControlName="fechaCreacion" required>
+            <div
+              *ngIf="agregarFormulario.get('fechaCreacion')?.touched && agregarFormulario.get('fechaCreacion')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa la fecha de creación
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="observaciones">Observaciones:</label>
+            <textarea class="form-control" id="observaciones" formControlName="observaciones" rows="4" placeholder="Ingrese observaciones" required></textarea>
+            <div
+              *ngIf="agregarFormulario.get('observaciones')?.touched && agregarFormulario.get('observaciones')?.hasError('required')"
+              class="alert alert-danger mt-1"
+              role="alert"
+            >
+              Ingresa observaciones
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form><br>
+</div>
